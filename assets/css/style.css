@@ -4,7 +4,48 @@
     UofT SCS Coding Bootcamp
 */
 
-body{
+html, body{
+    margin: 0;
+    padding: 0;
+
+    /*Scale image based on window size*/
     background-image: url("../images/Background/Grand_Order.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-color: #4877c5;
+
+    /*Properties for sticky footer, flexbox for variable height*/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+footer{
+    background-color: #1b1b1b;
+    color: #ffffff;
+    padding: 20px 0 10px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.container{
+    /*Sticky Footer property*/
+    flex: 1;
+}
+.game-area{
+    border: 2px solid white;
+    margin-left: 8.33%;
+}
+
+#main-header{
+    text-align: center;
+    color: white; /*TEMP DECO*/
+}
+/*TEMP CSS*/
+#card{
+    width: 200px;
+    display: inline-block;
+    background-color: white;
+    border: gold 2px solid;
 }
