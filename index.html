@@ -33,37 +33,43 @@
                 <div class="col-lg-1"></div> <!--column padding on larger screens-->
                 <section class="game-area col-12 col-lg-10">
 
+                    <!--Character Selection Block-->
                     <div id="selection-block">
-                        <header>
-                            <h2>Choose your servant</h2>
+                        <header class="sub-headers">
+                            <h2>Summon your servant</h2>
                         </header>
-                        <div id="card" class="test">
-                            <img src="assets/images/Artoria2.png" alt="SABER" class="img-fluid">
-                            <span>SABER</span>
-                        </div>
-                        <div id="card">
-                            <img src="assets/images/Emiya2.png" alt="ARCHER" class="img-fluid">
-                            <span>ARCHER</span>
-                        </div>
-                        <div id="card">
-                            <img src="assets/images/Cuchulainn1.png" alt="LANCER" class="img-fluid">
-                            <span>LANCER</span>
-                        </div>
-                        <div id="card">
-                            <img src="assets/images/Shielder2.png" alt="SHIELDER" class="img-fluid">
-                            <span>SHIELDER</span>
+                        <div class="row p-0">
+                            <div class="servant-card col-3" data-value=0>
+                                <img src="assets/images/Artoria2.png" alt="SABER" class="img-fluid card-border">
+                                <h3>SABER</h3>
+                            </div>
+                            <div class="servant-card col-3" data-value=1>
+                                <img src="assets/images/Emiya2.png" alt="ARCHER" class="img-fluid card-border">
+                                <h3>ARCHER</h3>
+                            </div>
+                            <div class="servant-card col-3" data-value=2>
+                                <img src="assets/images/Cuchulainn1.png" alt="LANCER" class="img-fluid card-border">
+                                <h3>LANCER</h3>
+                            </div>
+                            <div class="servant-card col-3" data-value=3>
+                                <img src="assets/images/Shielder2.png" alt="SHEILDER" class="img-fluid card-border">
+                                <h3>SHEILDER</h3>
+                            </div>
                         </div>
                     </div>
 
+                    <!--Main Battle Arena, hidden by default until character is selected-->
                     <div id="main-game">
                         <div id="enemies">
                             <!--TODO: Put Enemy Selection Here Dynamically, look at fridge example-->
-                            <h2>Enemies</h2>
-                            <div>TEMP LIST []</div>
+                            <h2>Enemy Servants</h2>
+                            <div id="fightList" class="row"></div>
                         </div>
                         <div id="arena">
                             <!--TODO: Display characters, stats and fight button and damage output-->
-                            <h2>Fighto</h2>
+                            <header>
+                                <h2>Fighto</h2>
+                            </header>
                             <button type="button" class="btn btn-light">Attack</button>
                             <div id="output">
                                 <p>temp output</p>
