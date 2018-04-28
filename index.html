@@ -39,32 +39,27 @@
                             <h2>Summon your servant</h2>
                         </header>
                         <div class="row p-0">
-                            <div class="servant-card col-3" data-value=0>
+                            <button class="btn btn-warning servant-card col-3 p-0" value=0>
                                 <img src="assets/images/Artoria2.png" alt="SABER" class="img-fluid card-border">
                                 <h3>SABER</h3>
-                            </div>
-                            <div class="servant-card col-3" data-value=1>
+                            </button>
+                            <button class="btn btn-warning servant-card col-3 p-0" value=1>
                                 <img src="assets/images/Emiya2.png" alt="ARCHER" class="img-fluid card-border">
                                 <h3>ARCHER</h3>
-                            </div>
-                            <div class="servant-card col-3" data-value=2>
+                            </button>
+                            <button class="btn btn-warning servant-card col-3 p-0" value=2>
                                 <img src="assets/images/Cuchulainn1.png" alt="LANCER" class="img-fluid card-border">
                                 <h3>LANCER</h3>
-                            </div>
-                            <div class="servant-card col-3" data-value=3>
+                            </button>
+                            <button class="btn btn-warning servant-card col-3 p-0" value=3>
                                 <img src="assets/images/Shielder2.png" alt="SHEILDER" class="img-fluid card-border">
                                 <h3>SHEILDER</h3>
-                            </div>
+                            </button>
                         </div>
                     </div>
 
                     <!--Main Battle Arena, hidden by default until character is selected-->
                     <div id="main-game">
-                        <div id="enemies">
-                            <!--TODO: Put Enemy Selection Here Dynamically, look at fridge example-->
-                            <h2>Enemy Servants</h2>
-                            <div id="fightList" class="row"></div>
-                        </div>
                         <div id="arena">
                             <!--TODO: Display characters, stats and fight button and damage output-->
                             <header>
@@ -74,6 +69,12 @@
                             <div id="output">
                                 <p>temp output</p>
                             </div>
+                        </div>
+
+                        <div id="enemies">
+                            <!--TODO: Put Enemy Selection Here Dynamically, look at fridge example-->
+                            <h2>Enemy Servants Left</h2>
+                            <div id="fightList" class="row"></div>
                         </div>
                     </div>
 
