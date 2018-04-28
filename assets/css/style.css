@@ -10,11 +10,11 @@ html, body{
     padding: 0;
 
     /*Scale image based on window size*/
-    background-image: url("../images/Background/Grand_Order.png");
+    /*background-image: url("../images/Background/Grand_Order.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: #4877c5;
+    background-color: #4877c5;*/
 
     /*Properties for sticky footer, flexbox for variable height*/
     display: flex;
@@ -49,7 +49,14 @@ footer{
     border: 2px solid gold;
 }
 
-
+.image-container{
+    /*border: 2px solid gold;
+    background-color: grey;*/
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
 
 /*ID CSS*/
 #main-header{
@@ -65,6 +72,17 @@ footer{
 
 #arena{
     border: 2px solid white;
+    text-align: center;
+}
+
+#output{
+    background-color: lightgray;
+    margin: 3%;
+    min-height: 200px;
+}
+
+#central-control{
+    padding: 30px;
 }
 
 /* TEMP: Re-add for functionality

@@ -59,24 +59,39 @@
                     </div>
 
                     <!--Main Battle Arena, hidden by default until character is selected-->
-                    <div id="main-game">
+                    <section id="main-game">
                         <div id="arena">
                             <!--TODO: Display characters, stats and fight button and damage output-->
-                            <header>
-                                <h2>Fighto</h2>
-                            </header>
-                            <button type="button" class="btn btn-light">Attack</button>
-                            <div id="output">
-                                <p>temp output</p>
+                            <div class="row">
+                                <div class="col-4">
+                                    <span id="playerName"></span>
+                                    <span id="playerHP"></span>
+                                    <div class="image-container">
+                                        <img src="" alt="Player" class="img-fluid" id="playerImg">
+                                    </div>
+                                </div>
+                                <div class="col-4" id="central-control">
+                                    <button type="button" class="btn btn-danger">Attack</button>
+                                    <div id="output">
+                                        <p>temp output</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <span id="enemyName"></span>
+                                    <span id="enemyHP"></span>
+                                    <div class="image-container">
+                                        <img src="" alt="Enemy" class="img-fluid" id="enemyImg">
+                                    </div>
+                                </div>
                             </div>
+                            
                         </div>
 
-                        <div id="enemies">
-                            <!--TODO: Put Enemy Selection Here Dynamically, look at fridge example-->
+                        <div>
                             <h2>Enemy Servants Left</h2>
-                            <div id="fightList" class="row"></div>
+                            <div id="enemies" class="row"></div>
                         </div>
-                    </div>
+                    </section>
 
                 </section>
             </div>
