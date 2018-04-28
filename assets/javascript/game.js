@@ -4,7 +4,7 @@
     UofT SCS Coding Bootcamp
 */
 
-//Object containing base info for characters
+//Object Characters
 var Saber = {
     name: "Saber (Artoria Pendragon)",
     health: 100, //TODO give health actual values
@@ -28,3 +28,13 @@ var Sheilder = {
     health: 100, //TODO give health actual values
     attackPower: 50, //TODO give attackPower actual values
 };
+
+$(document).ready(function() {
+    //TODO fill in the on-click events that the game runs on
+
+    //TEST CODE REMOVE WHEN DONE
+    $("#selection-block").on("click", "#card", function() {
+        alert("Servant Selected");
+        $("#selection-block").attr("style", "display: none");
+    });
+});

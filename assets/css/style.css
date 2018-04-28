@@ -4,6 +4,7 @@
     UofT SCS Coding Bootcamp
 */
 
+/*Element CSS*/
 html, body{
     margin: 0;
     padding: 0;
@@ -27,20 +28,25 @@ footer{
     padding: 20px 0 10px;
     text-align: center;
     font-size: 10px;
+    margin-top: 5%;
 }
 
+/*Class CSS*/
 .container{
     /*Sticky Footer property*/
     flex: 1;
 }
 .game-area{
     border: 2px solid white;
-    margin-left: 8.33%;
+    /*margin-left: 8.33%;*/
 }
 
+/*ID CSS*/
 #main-header{
     text-align: center;
     color: white; /*TEMP DECO*/
+    font-family: 'EB Garamond', serif;
+    padding: 10px 0;
 }
 /*TEMP CSS*/
 #card{
@@ -48,4 +54,8 @@ footer{
     display: inline-block;
     background-color: white;
     border: gold 2px solid;
+}
+
+#arena{
+    border: 2px solid white;
 }

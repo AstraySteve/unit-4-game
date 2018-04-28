@@ -10,27 +10,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- Added link to the jQuery Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+
         <title>Fate/ Mini Order</title>
     </head>
     <body>
         <header id="main-header">
-            <h1>FATE/ MINI ORDER</h1>
+            <h1>Fate / Mini Order</h1>
         </header>
 
         <div class="container">
             <div class="row">
+                <div class="col-lg-1"></div> <!--column padding on larger screens-->
                 <section class="game-area col-12 col-lg-10">
 
                     <div id="selection-block">
                         <header>
                             <h2>Choose your servant</h2>
                         </header>
-                        <div id="card">
+                        <div id="card" class="test">
                             <img src="assets/images/Artoria2.png" alt="SABER" class="img-fluid">
                             <span>SABER</span>
                         </div>
@@ -54,7 +61,7 @@
                             <h2>Enemies</h2>
                             <div>TEMP LIST []</div>
                         </div>
-                        <div id="Arena">
+                        <div id="arena">
                             <!--TODO: Display characters, stats and fight button and damage output-->
                             <h2>Fighto</h2>
                             <button type="button" class="btn btn-light">Attack</button>
