@@ -48,7 +48,7 @@
                                 <h3>ARCHER</h3>
                             </button>
                             <button class="btn btn-warning servant-card col-3 p-0" value=2>
-                                <img src="assets/images/Cuchulainn1.png" alt="LANCER" class="img-fluid card-border">
+                                <img src="assets/images/Scathach.png" alt="LANCER" class="img-fluid card-border">
                                 <h3>LANCER</h3>
                             </button>
                             <button class="btn btn-warning servant-card col-3 p-0" value=3>
@@ -60,31 +60,26 @@
 
                     <!--Main Battle Arena, hidden by default until character is selected-->
                     <section id="main-game">
+
                         <div id="arena">
-                            <!--TODO: Display characters, stats and fight button and damage output-->
                             <div class="row">
                                 <div class="col-4">
                                     <span id="playerName"></span>
                                     <span id="playerHP"></span>
-                                    <div class="image-container">
-                                        <img src="" alt="Player" class="img-fluid" id="playerImg">
-                                    </div>
+                                    <div class="image-container" id="playerImage"></div>
                                 </div>
                                 <div class="col-4" id="central-control">
-                                    <button type="button" class="btn btn-danger">Attack</button>
+                                    <button type="button" class="btn btn-danger" id="attack">Attack</button>
                                     <div id="output">
-                                        <p>temp output</p>
+                                        <p>FIGHT!!</p>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <span id="enemyName"></span>
                                     <span id="enemyHP"></span>
-                                    <div class="image-container">
-                                        <img src="" alt="Enemy" class="img-fluid" id="enemyImg">
-                                    </div>
+                                    <div class="image-container" id="enemyImage"></div>
                                 </div>
-                            </div>
-                            
+                            </div>  
                         </div>
 
                         <div>

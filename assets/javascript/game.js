@@ -7,38 +7,45 @@
 //Object Characters
 var Saber = {
     name: "Saber (Artoria Pendragon)",
-    health: 100, //TODO give health actual values
-    attackPower: 50, //TODO give attackPower actual values
+    health: 120,
+    attackPower: 5, //Base Attack Value
 
     imageCard: "Artoria2.png",
     imageSprite: "Arthur_Sprite.png",
+    imageSprite2: "Arthur_Sprite2.png",
 };
 
 var Archer = {
     name: "Archer (EMIYA)",
-    health: 100, //TODO give health actual values
-    attackPower: 50, //TODO give attackPower actual values
+    health: 100,
+    attackPower: 3, //Base Attack Value
 
     imageCard: "Emiya2.png",
     imageSprite: "Emiya_Sprite.png",
+    imageSprite2: "Emiya_Sprite2.png",
 };
 
 var Lancer = {
-    name: "Lancer (Cu Chulainn)",
-    health: 100, //TODO give health actual values
-    attackPower: 50, //TODO give attackPower actual values
+    name: "Lancer (Scathach)",
+    health: 180,
+    attackPower: 4, //Base Attack Value
 
-    imageCard: "Cuchulainn1.png",
+    imageCard: "Scathach.png",
+    imageSprite: "Scathach_Sprite.png",
+    imageSprite2: "Scathach_Sprite2.png",
+    /*imageCard: "Cuchulainn1.png",
     imageSprite: "Cu_Sprite.png",
+    imageSprite2: "Cu_Sprite2.png",*/
 };
 
 var Sheilder = {
     name: "Sheilder (Mashu Kyrielite)",
-    health: 100, //TODO give health actual values
-    attackPower: 50, //TODO give attackPower actual values
+    health: 150,
+    attackPower: 2, //Base Attack Value
 
     imageCard: "Shielder2.png",
     imageSprite: "Mashu_Sprite.png",
+    imageSprite2: "Mashu_Sprite2.png",
 };
 
 //Global Variables
@@ -47,6 +54,7 @@ var player; //variable to hold player's choice
 var enemyList = []; //list to hold remaining enemies
 var enemy; //Variable to hold current enemy
 var enemyFlag = false; //flag if enemy has been selected
+var turnCount = 0;
 
 //Functions
 function showEnemyList(){
@@ -77,20 +85,74 @@ function initPlayer(){
     //Function to initialize player side
     $("#playerName").text(player.name);
     $("#playerHP").text(player.health);
-    $('#playerImg').attr({
-        src: "assets/images/" + player.imageSprite,
+
+    var image = $("<img>");
+    image.attr({
+        src: "assets/images/" + player.imageSprite2,
+        alt: "Player",
+        class: "img-fluid",
     });
+    $('#playerImage').append(image);
 }
 
 function initEnemy(){
     //Function to initialize enemy side
     $("#enemyName").text(enemy.name);
     $("#enemyHP").text(enemy.health);
-    $('#enemyImg').attr({
+
+    var image = $("<img>");
+    image.attr({
         src: "assets/images/" + enemy.imageSprite,
+        alt: "Enemy",
+        class: "img-fluid",
     });
+    $('#enemyImage').append(image);
 }
 
+function playerAttack(){
+    //caculates damage aganist enemies and outputs results
+    var newOutput = $("<p>");
+    newOutput.text("Attacked for: " + (player.attackPower * turnCount));
+    $("#output").append(newOutput);
+
+    enemy.health -= (player.attackPower * turnCount);
+    //player.attackPower = player.attackPower * turnCount; //Increase attack power
+    $("#enemyHP").text(enemy.health);
+
+    console.log(enemy.health);
+    if (enemy.health <= 0){
+        newOutput.text("Enemy eliminated!");
+        $("#output").append(newOutput);
+        $('#enemyImage').empty();
+
+        if(enemyList.length <= 0){
+            alert("you win!");
+        }
+        else{
+            enemyFlag = false;
+        }
+    }
+    else{
+        counterAttack();
+    }
+}
+
+function counterAttack(){
+    //caculates damage received and outputs results
+    var newOutput = $("<p>");
+    newOutput.text("Recived : " + enemy.attackPower + " damage");
+    $("#output").append(newOutput);
+
+    player.health -= enemy.attackPower;
+    $("#playerHP").text(player.health);
+    if (player.health <= 0){
+        newOutput.text("You are dead!");
+        $("#output").append(newOutput);
+        $('#playerImage').empty();
+    }
+}
+
+//main
 $(document).ready(function() {
     //TODO fill in the on-click events that the game runs on
     //Character Selection Event
@@ -109,7 +171,7 @@ $(document).ready(function() {
 
         //Hide character selection block and display main game interface
         $("#selection-block").attr("style", "display: none");
-        //$("#main-game").attr("style", "display: block"); //TEMP: re-add for game functionality
+        $("#main-game").attr("style", "display: block"); //TEMP: re-add for game functionality
     });
     
     //Enemy Selection Event
@@ -125,6 +187,19 @@ $(document).ready(function() {
             //console.log(enemyList);
             showEnemyList();
         }
+    });
+
+    //Attack Button Event
+    $("#central-control").on("click", "#attack", function(){
+        if(enemyFlag == false){
+            alert("Please select an opponent.");
+        }
+        else{
+            turnCount++;
+            $("#output").empty();
+            playerAttack();
+        }
+
     });
 
 });
