@@ -6,7 +6,8 @@
 
 //Object Characters
 var Saber = {
-    name: "Saber (Artoria Pendragon)",
+    class: "SABER",
+    name: "SABER (Artoria Pendragon)",
     health: 1200,
     attackPower: 5, //Base Attack Value
 
@@ -16,7 +17,8 @@ var Saber = {
 };
 
 var Archer = {
-    name: "Archer (EMIYA)",
+    class: "ARCHER",
+    name: "ARCHER (EMIYA)",
     health: 1000,
     attackPower: 3, //Base Attack Value
 
@@ -26,7 +28,8 @@ var Archer = {
 };
 
 var Lancer = {
-    name: "Lancer (Scathach)",
+    class: "LANCER",
+    name: "LANCER (Scathach)",
     health: 1500,
     attackPower: 4, //Base Attack Value
 
@@ -36,7 +39,8 @@ var Lancer = {
 };
 
 var Sheilder = {
-    name: "Sheilder (Mashu Kyrielite)",
+    class: "SHIELDER",
+    name: "SHIELDER (Mashu Kyrielite)",
     health: 1800,
     attackPower: 2, //Base Attack Value
 
@@ -67,14 +71,22 @@ function showEnemyList(){
         });
         $("#enemies").append(servantCard);
 
+        var servantClass = $("<h5>");
+        servantClass.text(enemyList[i].class);
+        $("#enemy" + i).append(servantClass);
+
         //Adds <img> under <button>
         var servantImage = $("<img>");
         servantImage.attr({
             src: "assets/images/" + enemyList[i].imageCard,
             alt: "SERVANT",
-            class: "img-fluid card-border",
+            class: "img-fluid",
         });
         $("#enemy" + i).append(servantImage);
+
+        var servantStat = $("<p>");  
+        servantStat.text(enemyList[i].health);
+        $("#enemy" + i).append(servantStat);
     }
 }
 
@@ -150,6 +162,7 @@ function counterAttack(){
         newOutput.text("You are dead!");
         $("#output").append(newOutput);
         $('#playerImage').empty();
+        enemyFlag: false;
     }
 }
 
@@ -186,7 +199,7 @@ $(document).ready(function() {
 
         //Hide character selection block and display main game interface
         $("#selection-block").attr("style", "display: none");
-        $("#main-game").attr("style", "display: block"); //TEMP: re-add for game functionality
+        $("#main-game").attr("style", "display: block");
     });
     
     //Enemy Selection Event
@@ -206,8 +219,11 @@ $(document).ready(function() {
 
     //Attack Button Event
     $("#central-control").on("click", "#attack", function(){
-        if(enemyFlag == false){
+        if(enemyFlag == false && player.health > 0){
             alert("Please select an opponent.");
+        }
+        else if(player.health <= 0){
+            alert("You are dead!, refresh page to try again!");
         }
         else{
             turnCount++;

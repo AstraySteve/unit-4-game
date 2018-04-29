@@ -10,6 +10,7 @@ html, body{
     padding: 0;
     font-family: 'EB Garamond', serif;
     line-height: 1.6;
+    color: #ffffff;
 
     /*Scale image based on window size*/
     background-image: url("../images/Background/Grand_Order.png");
@@ -26,11 +27,14 @@ html, body{
 
 footer{
     background-color: #1b1b1b;
-    color: #ffffff;
     padding: 20px 0 10px;
     text-align: center;
     font-size: 10px;
     margin-top: 5%;
+}
+
+h3{
+    color: #1b1b1b;
 }
 
 /*Class CSS*/
@@ -47,34 +51,35 @@ footer{
     /*margin-left: 8.33%;*/
 }
 
-.card-border{
-    border: 2px solid gold;
-}
-
 .image-container{
     width: 80%;
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    bottom: 0;
+    margin: 5% 0;
+}
+
+.servant-card{
+    text-align: center;
+}
+
+.char-box{
+    padding: 10px 0;
 }
 
 /*ID CSS*/
 #main-header{
     text-align: center;
-    color: white; /*TEMP DECO*/
     padding: 10px 0;
-}
-/*TEMP CSS TEST CODE HERE*/
-.servant-card{
-    text-align: center;
 }
 
 #arena{
-    border: 2px solid white;
+    border: 2px solid slategrey;
     text-align: center;
-    background-image: url("../images/Background/Fuyuki.png");
-    color: #ffffff;
+    background-image: url("../images/Background/ubw.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
 #output{
@@ -89,7 +94,28 @@ footer{
     padding: 30px;
 }
 
-/* TEMP: Re-add for functionality*/
 #main-game{
     display: none;
+}
+
+#enemies{
+    padding: 2px 5%;
+}
+
+@media only screen and (max-width: 768px){
+    h3{
+        font-size: 90%;
+    }
+    h2{
+        font-size: 20px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    h5{
+        font-size: 70%;
+    }
+    p{
+        font-size: 10px;
+    }
 }

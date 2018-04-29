@@ -23,6 +23,7 @@
 
         <title>Fate/ Mini Order</title>
     </head>
+
     <body>
         <header id="main-header">
             <h1>Fate / Mini Order</h1>
@@ -39,33 +40,33 @@
                             <h2>Summon your servant</h2>
                         </header>
                         <div class="row p-0">
-                            <button class="btn btn-warning servant-card col-3 p-0" value=0>
-                                <img src="assets/images/Artoria2.png" alt="SABER" class="img-fluid card-border">
+                            <button class="btn btn-warning servant-card col-6 col-sm-3 p-0" value=0>
+                                <img src="assets/images/Artoria2.png" alt="SABER" class="img-fluid">
                                 <h3>SABER</h3>
                             </button>
-                            <button class="btn btn-warning servant-card col-3 p-0" value=1>
-                                <img src="assets/images/Emiya2.png" alt="ARCHER" class="img-fluid card-border">
+                            <button class="btn btn-warning servant-card col-6 col-sm-3 p-0" value=1>
+                                <img src="assets/images/Emiya2.png" alt="ARCHER" class="img-fluid">
                                 <h3>ARCHER</h3>
                             </button>
-                            <button class="btn btn-warning servant-card col-3 p-0" value=2>
-                                <img src="assets/images/Scathach.png" alt="LANCER" class="img-fluid card-border">
+                            <button class="btn btn-warning servant-card col-6 col-sm-3 p-0" value=2>
+                                <img src="assets/images/Scathach.png" alt="LANCER" class="img-fluid">
                                 <h3>LANCER</h3>
                             </button>
-                            <button class="btn btn-warning servant-card col-3 p-0" value=3>
-                                <img src="assets/images/Shielder2.png" alt="SHEILDER" class="img-fluid card-border">
+                            <button class="btn btn-warning servant-card col-6 col-sm-3 p-0" value=3>
+                                <img src="assets/images/Shielder2.png" alt="SHEILDER" class="img-fluid">
                                 <h3>SHEILDER</h3>
                             </button>
                         </div>
                     </div>
 
                     <!--Main Battle Arena, hidden by default until character is selected-->
-                    <section id="main-game">
+                    <div id="main-game">
 
                         <div id="arena">
-                            <div class="row">
-                                <div class="col-4">
-                                    <span id="playerName"></span>
-                                    <span id="playerHP"></span>
+                            <div class="row p-0">
+                                <div class="col-4 char-box">
+                                    <p id="playerName"></p>
+                                    <p id="playerHP"></p>
                                     <div class="image-container" id="playerImage"></div>
                                 </div>
                                 <div class="col-4" id="central-control">
@@ -74,26 +75,28 @@
                                         <p>FIGHT!!</p>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <span id="enemyName"></span>
-                                    <span id="enemyHP"></span>
+                                <div class="col-4 char-box">
+                                    <p id="enemyName"></p>
+                                    <p id="enemyHP"></p>
                                     <div class="image-container" id="enemyImage"></div>
                                 </div>
                             </div>  
                         </div>
 
                         <div>
-                            <h2>Enemy Servants Left</h2>
+                            <header class="sub-headers">
+                                <h3>Enemy Servants Left</h3>
+                            </header>
                             <div id="enemies" class="row"></div>
                         </div>
-                    </section>
+                    </div>
 
                 </section>
             </div>
         </div>
 
         <footer>
-            <span>&copy; Copyright 2018</span>
+            <span>&copy; Copyright 2018 V1.0</span>
         </footer>
 
         <!--Javascript-->
