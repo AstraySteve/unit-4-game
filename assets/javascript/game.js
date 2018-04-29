@@ -7,7 +7,7 @@
 //Object Characters
 var Saber = {
     name: "Saber (Artoria Pendragon)",
-    health: 120,
+    health: 1200,
     attackPower: 5, //Base Attack Value
 
     imageCard: "Artoria2.png",
@@ -17,7 +17,7 @@ var Saber = {
 
 var Archer = {
     name: "Archer (EMIYA)",
-    health: 100,
+    health: 1000,
     attackPower: 3, //Base Attack Value
 
     imageCard: "Emiya2.png",
@@ -27,20 +27,17 @@ var Archer = {
 
 var Lancer = {
     name: "Lancer (Scathach)",
-    health: 180,
+    health: 1500,
     attackPower: 4, //Base Attack Value
 
     imageCard: "Scathach.png",
     imageSprite: "Scathach_Sprite.png",
     imageSprite2: "Scathach_Sprite2.png",
-    /*imageCard: "Cuchulainn1.png",
-    imageSprite: "Cu_Sprite.png",
-    imageSprite2: "Cu_Sprite2.png",*/
 };
 
 var Sheilder = {
     name: "Sheilder (Mashu Kyrielite)",
-    health: 150,
+    health: 1800,
     attackPower: 2, //Base Attack Value
 
     imageCard: "Shielder2.png",
@@ -93,6 +90,8 @@ function initPlayer(){
         class: "img-fluid",
     });
     $('#playerImage').append(image);
+
+    attkMultiplier(player, 1);
 }
 
 function initEnemy(){
@@ -107,6 +106,8 @@ function initEnemy(){
         class: "img-fluid",
     });
     $('#enemyImage').append(image);
+
+    attkMultiplier(enemy, 2);
 }
 
 function playerAttack(){
@@ -149,6 +150,20 @@ function counterAttack(){
         newOutput.text("You are dead!");
         $("#output").append(newOutput);
         $('#playerImage').empty();
+    }
+}
+
+function attkMultiplier(servant, user){
+    //Function takes in an object (servant) and flag (user), 1 for player and 2 for computer
+    //randomly multiply object attackPower accordingly
+    if(user == 1){
+        servant.attackPower = servant.attackPower * (Math.floor(Math.random() * (10-2+1)) + 2);
+    }
+    else if (user == 2){
+        servant.attackPower = servant.attackPower * (Math.floor(Math.random() * (30-10+1)) + 10);
+    }
+    else{
+        console.log("error invalid input");
     }
 }
 
