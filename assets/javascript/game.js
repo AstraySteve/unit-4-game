@@ -11,9 +11,15 @@ var Saber = {
     health: 1200,
     attackPower: 5, //Base Attack Value
 
+    //Image links
     imageCard: "Artoria2.png",
     imageSprite: "Arthur_Sprite.png",
     imageSprite2: "Arthur_Sprite2.png",
+    //Audio links
+    summonAudio: "Artoria/Artoria_start.mp3",
+    attackAudio: ["Artoria/Artoria_attack1.mp3","Artoria/Artoria_attack2.mp3","Artoria/Artoria_attack3.mp3"],
+    loseAudio: "Artoria/Artoria_lose.mp3",
+    winAudio: "Artoria/Artoria_win.mp3",
 };
 
 var Archer = {
@@ -22,9 +28,15 @@ var Archer = {
     health: 1000,
     attackPower: 3, //Base Attack Value
 
+    //Image links
     imageCard: "Emiya2.png",
     imageSprite: "Emiya_Sprite.png",
     imageSprite2: "Emiya_Sprite2.png",
+    //Audio links
+    summonAudio: "Emiya/Emiya_start.mp3",
+    attackAudio: ["Emiya/Emiya_attack1.mp3","Emiya/Emiya_attack2.mp3","Emiya/Emiya_attack3.mp3"],
+    loseAudio: "Emiya/Emiya_lose.mp3",
+    winAudio: "Emiya/Emiya_win.mp3",
 };
 
 var Lancer = {
@@ -33,9 +45,15 @@ var Lancer = {
     health: 1500,
     attackPower: 4, //Base Attack Value
 
+    //Image links
     imageCard: "Scathach.png",
     imageSprite: "Scathach_Sprite.png",
     imageSprite2: "Scathach_Sprite2.png",
+    //Audio links
+    summonAudio: "Scathach/Scathach_start.mp3",
+    attackAudio: ["Scathach/Scathach_attack1.mp3","Scathach/Scathach_attack2.mp3"],
+    loseAudio: "Scathach/Scathach_lose.mp3",
+    winAudio: "Scathach/Scathach_win.mp3",
 };
 
 var Sheilder = {
@@ -44,9 +62,15 @@ var Sheilder = {
     health: 1800,
     attackPower: 2, //Base Attack Value
 
+    //Image links
     imageCard: "Shielder2.png",
     imageSprite: "Mashu_Sprite.png",
     imageSprite2: "Mashu_Sprite2.png",
+    //Audio links
+    summonAudio: "Mashu/Mashu_start.mp3",
+    attackAudio: ["Mashu/Mashu_attack1.mp3","Mashu/Mashu_attack2.mp3","Mashu/Mashu_attack3.mp3"],
+    loseAudio: "Mashu/Mashu_lose.mp3",
+    winAudio: "Mashu/Mashu_win.mp3",
 };
 
 //Global Variables
@@ -56,6 +80,7 @@ var enemyList = []; //list to hold remaining enemies
 var enemy; //Variable to hold current enemy
 var enemyFlag = false; //flag if enemy has been selected
 var turnCount = 0;
+var audioElement = document.createElement("audio");
 
 //Functions
 function showEnemyList(){
@@ -132,14 +157,17 @@ function playerAttack(){
     //player.attackPower = player.attackPower * turnCount; //Increase attack power
     $("#enemyHP").text(enemy.health);
 
-    console.log(enemy.health);
     if (enemy.health <= 0){
         newOutput.text("Enemy eliminated!");
         $("#output").append(newOutput);
         $('#enemyImage').empty();
 
         if(enemyList.length <= 0){
-            alert("you win!");
+            newOutput.text("You Win!");
+            $("#output").append(newOutput);
+            audioElement.setAttribute("src", "assets/sound/"+player.winAudio);
+            audioElement.play();
+            enemyFlag = false;
         }
         else{
             enemyFlag = false;
@@ -153,12 +181,15 @@ function playerAttack(){
 function counterAttack(){
     //caculates damage received and outputs results
     var newOutput = $("<p>");
-    newOutput.text("Recived : " + enemy.attackPower + " damage");
+    newOutput.text("Received : " + enemy.attackPower + " damage");
     $("#output").append(newOutput);
 
     player.health -= enemy.attackPower;
     $("#playerHP").text(player.health);
+
     if (player.health <= 0){
+        audioElement.setAttribute("src", "assets/sound/"+player.loseAudio);
+        audioElement.play();
         newOutput.text("You are dead!");
         $("#output").append(newOutput);
         $('#playerImage').empty();
@@ -188,6 +219,10 @@ $(document).ready(function() {
         var playerChoice = this.value;
         player = mainList[playerChoice];
 
+        // Gets Link for sound file
+        audioElement.setAttribute("src", "assets/sound/"+player.summonAudio);
+        audioElement.play();
+
         //Populate enemy List with the leftover characters
         for (i=0; i<mainList.length; i++){
             if (i != playerChoice){
@@ -212,7 +247,6 @@ $(document).ready(function() {
             enemy = enemyList[this.value];
             enemyList.splice(this.value,1); //remove item from array
             initEnemy();
-            //console.log(enemyList);
             showEnemyList();
         }
     });
@@ -226,6 +260,9 @@ $(document).ready(function() {
             alert("You are dead!, refresh page to try again!");
         }
         else{
+            var i = Math.floor(Math.random() * player.attackAudio.length);
+            audioElement.setAttribute("src", "assets/sound/"+player.attackAudio[i]);
+            audioElement.play();
             turnCount++;
             $("#output").empty();
             playerAttack();
