@@ -235,6 +235,7 @@ $(document).ready(function() {
         //Hide character selection block and display main game interface
         $("#selection-block").attr("style", "display: none");
         $("#main-game").attr("style", "display: block");
+        $(".game-area").attr("style", "padding: 0");
     });
     
     //Enemy Selection Event
